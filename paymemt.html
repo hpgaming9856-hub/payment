@@ -1,0 +1,67 @@
+<h2>পেমেন্ট করুন</h2>
+
+<button onclick="copyBkash()">বিকাশ: 01738816849</button>
+<button onclick="copyNagad()">নগদ: 01738816849</button>
+
+<p id="copyMsg"></p>
+
+<hr>
+
+<h2>পেমেন্ট ভেরিফিকেশন</h2>
+
+<input id="name" placeholder="আপনার নাম"><br><br>
+
+<input id="phone" placeholder="আপনার মোবাইল নাম্বার"><br><br>
+
+<select id="method">
+<option>বিকাশ</option>
+<option>নগদ</option>
+</select><br><br>
+
+<input id="trx" placeholder="Transaction ID"><br><br>
+
+<button onclick="sendWhatsApp()">Verify Payment</button>
+
+
+<script>
+
+let bkash="01762334512";
+let nagad="01738816849";
+
+
+function copyBkash(){
+navigator.clipboard.writeText(bkash);
+document.getElementById("copyMsg").innerHTML="বিকাশ নাম্বার কপি হয়েছে";
+}
+
+
+function copyNagad(){
+navigator.clipboard.writeText(nagad);
+document.getElementById("copyMsg").innerHTML="নগদ নাম্বার কপি হয়েছে";
+}
+
+
+function sendWhatsApp(){
+
+let name=document.getElementById("name").value;
+let phone=document.getElementById("phone").value;
+let method=document.getElementById("method").value;
+let trx=document.getElementById("trx").value;
+
+
+let message=
+"নতুন পেমেন্ট ভেরিফিকেশন%0A%0A"+
+"নাম: "+name+
+"%0Aমোবাইল: "+phone+
+"%0Aপেমেন্ট: "+method+
+"%0ATransaction ID: "+trx;
+
+
+window.open(
+"https://wa.me/8801738816849?text="+message,
+"_blank"
+);
+
+}
+
+  </script>
